@@ -36,7 +36,7 @@ The application empowers citizens to report non-compliant billboards through a s
 
 The application is designed with a modern client-server architecture, separating the user interface from the business logic for scalability and maintainability.
 
-
+---
 +-----------------+      +---------------------+      +------------------+
 |                 |      |                     |      |                  |
 |   Frontend      |----->|     Backend API     |----->|    Database      |
@@ -53,7 +53,7 @@ The application is designed with a modern client-server architecture, separating
 |                  |
 +------------------+
 
-
+---
 1.  **Frontend (Next.js & React):** The user-facing application that citizens and administrators interact with. It's responsible for rendering the UI, capturing report data (images, location), and communicating with the backend API.
 
 2.  **Backend API (Simulated with Node.js/Express):** The central hub that handles business logic. It would receive data from the frontend, process it, interact with the database, and call external services like the AI model for image analysis.

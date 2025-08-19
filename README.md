@@ -36,7 +36,7 @@ AdGuard 360 is designed to meet all the core objectives of the hackathon challen
     * **Structural Hazards:** Does the structure appear old, rusted, or unsafe?
     * **Content Violations:** Does the content include obscenities or misinformation?
     * **Regulatory Compliance:** Cross-referencing with a database of permitted billboards (conceptual).
-* ** cidadão Engagement:** An intuitive, mobile-first web app allows any citizen to become a stakeholder in maintaining their city's landscape.
+* **🤝 Citizen Engagement:** An intuitive, mobile-first web app allows any citizen to become a stakeholder in maintaining their city's landscape.
 * **📊 Centralized Reporting Portal:** A dedicated dashboard for municipal authorities to view, verify, and manage all submitted reports in real-time.
 * **🏆 Gamification:** A leaderboard is included to incentivize citizen reporting, fulfilling one of the optional bonus objectives.
 
@@ -44,41 +44,59 @@ AdGuard 360 is designed to meet all the core objectives of the hackathon challen
 
 ## 🏗️ System Architecture Overview
 
-The application is designed with a modern client-server architecture, separating the user interface from the business logic for scalability and maintainability.
+The application is designed with a modern, distributed architecture to handle citizen reporting, data processing, and administrative oversight efficiently.
 
 
-+-----------------+      +---------------------+      +------------------+
-|                 |      |                     |      |                  |
-|   Frontend      |----->|     Backend API     |----->|    Database      |
-|  (Next.js)      |      | (Node.js / Express) |      |   (PostgreSQL)   |
-|                 |      |                     |      |                  |
-+-----------------+      +---------------------+      +------------------+
-^                         |
-|                         |
-|                         v
-|               +------------------+
-|               |                  |
-+---------------|    AI Service    |
-| (Gemini Vision)  |
-|                  |
-+------------------+
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   Mobile App    │    │  Web Dashboard  │    │    AI Service   │
+│ (React Native)  │    │     (React)     │    │    (Python)     │
+│                 │    │                 │    │                 │
+│ • Camera        │    │ • Analytics     │    │ • Computer      │
+│ • GPS           │    │ • Maps          │    │   Vision        │
+│ • Reporting     │    │ • Management    │    │ • Detection     │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+│                    │                    │
+└────────────┼────────────────────┘
+│
+┌─────────────────┐
+│   Backend API   │
+│    (Node.js)    │
+│                 │
+│ • Authentication│
+│ • Report Mgmt   │
+│ • Real-time     │
+│ • File Upload   │
+└─────────────────┘
+│
+┌─────────────────┐
+│    Database     │
+│   (MongoDB)     │
+│   + Redis       │
+└─────────────────┘
 
 
-1.  **Frontend (Next.js & React):** The user-facing application that citizens and administrators interact with.
-2.  **Backend API (Simulated with Node.js/Express):** The central hub that handles business logic, data processing, and communication with the AI service.
-3.  **Database (PostgreSQL - Conceptual):** A relational database to store all report data, user information, and leaderboard scores.
-4.  **AI Service (Google Gemini - Conceptual):** An external AI model for computer vision analysis on uploaded billboard images.
+1.  **Mobile App (React Native):** The primary tool for citizens to capture and report billboards using their phone's camera and GPS.
+2.  **Web Dashboard (React):** The administrative portal for authorities to view analytics, manage incoming reports, and visualize data on maps.
+3.  **AI Service (Python):** A dedicated microservice for handling computer vision tasks, such as analyzing images for compliance violations.
+4.  **Backend API (Node.js):** The central service that manages authentication, report processing, real-time updates, and communication between all other components.
+5.  **Database (MongoDB + Redis):** A NoSQL database for flexible data storage, paired with Redis for caching and real-time messaging.
 
 ---
 
 ## 🛠️ Tech Stack
 
 * **Frontend:**
-    * [Next.js](https://nextjs.org/) - React Framework for Server-Side Rendering
-    * [React](https://reactjs.org/) - JavaScript Library for UI
+    * [React Native](https://reactnative.dev/) - Mobile App Framework
+    * [Next.js](https://nextjs.org/) / [React](https://reactjs.org/) - Web Dashboard Framework
     * [Tailwind CSS](https://tailwindcss.com/) - Utility-First CSS Framework
-* **Backend (Simulated):**
+* **Backend:**
     * [Node.js](https://nodejs.org/) - JavaScript Runtime
+    * [Express.js](https://expressjs.com/) - Web Framework
+* **AI / Machine Learning:**
+    * [Python](https://www.python.org/) - For Computer Vision and AI Services
+* **Database:**
+    * [MongoDB](https://www.mongodb.com/) - NoSQL Database
+    * [Redis](https://redis.io/) - In-Memory Data Store / Cache
 
 ---
 

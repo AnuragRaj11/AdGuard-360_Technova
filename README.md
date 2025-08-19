@@ -1,8 +1,8 @@
 <div align="center">
   <img src="https://placehold.co/1280x400/0d1117/22d3ee?text=AdGuard%20360" alt="AdGuard 360 Banner">
-  <h1 align="center">AdGuard 360 - Billboard Reporting System</h1>
+  <h1 align="center">AdGuard 360: A Tech-Enabled Framework for Billboard Compliance</h1>
   <p align="center">
-    A community-driven web application to detect, report, and manage unauthorized billboards, built for the Technova Season 2 Hackathon.
+    A technology-driven solution to combat unauthorized billboards in urban landscapes, developed for the <strong>Technova Season 2 Hackathon</strong>.
   </p>
   
   <!-- Badges -->
@@ -16,19 +16,29 @@
 
 ---
 
-## 📋 About The Project
+## 🎯 Project Overview & Problem Statement
 
-**AdGuard 360** is a technology-driven solution designed to tackle the growing problem of unauthorized billboards in urban areas. This project was developed as a submission for the **Technova Season 2 "Flag the Unauthorized Billboards"** challenge, powered by ESSPL.
+Unauthorized billboards are a growing menace in Indian cities, contributing to accidents, diminishing aesthetic appeal, and spreading misinformation. Despite existing regulations, enforcement is challenging due to manual processes and a lack of public reporting mechanisms.
 
-The application empowers citizens to report non-compliant billboards through a simple web interface. It provides a centralized dashboard for authorities to review these reports, enabling efficient monitoring and enforcement of outdoor advertising regulations. The goal is to improve urban aesthetics, enhance public safety, and create a transparent system for managing public advertising spaces.
+This project, **AdGuard 360**, directly answers the Technova Season 2 challenge: *"How can we develop a smart, scalable, mobility-based detection application that identifies unauthorized or non-compliant billboards just by clicking a picture or a live video?"*
 
-### ✨ Key Features
+Our solution provides a tech-enabled framework that empowers citizens and equips authorities to efficiently enforce outdoor advertising policies.
 
-* **Citizen Reporting:** An intuitive form for users to upload images of billboards, add location details, and submit reports.
-* **Admin Dashboard:** A centralized portal for authorities to view, manage, and track all submitted reports in a clean, tabular format.
-* **Gamification:** A public leaderboard to incentivize and reward active citizen reporters based on their contributions.
-* **Modern UI/UX:** A sleek, responsive, and dark-themed interface built with Tailwind CSS for a great user experience.
-* **Scalable Architecture:** Built with Next.js for a fast, server-rendered React application.
+---
+
+## ✨ Key Features & Challenge Objectives
+
+AdGuard 360 is designed to meet all the core objectives of the hackathon challenge:
+
+* **📸 Smart Detection:** Users can report billboards by uploading an image. The system is designed to integrate AI/computer vision to analyze submissions for potential violations.
+* **✅ Violation Identification:** The platform checks for key non-compliance issues as specified in the problem statement:
+    * **Incorrect Dimensions & Poor Placement:** Is the billboard too large or located in a hazardous zone?
+    * **Structural Hazards:** Does the structure appear old, rusted, or unsafe?
+    * **Content Violations:** Does the content include obscenities or misinformation?
+    * **Regulatory Compliance:** Cross-referencing with a database of permitted billboards (conceptual).
+* ** cidadão Engagement:** An intuitive, mobile-first web app allows any citizen to become a stakeholder in maintaining their city's landscape.
+* **📊 Centralized Reporting Portal:** A dedicated dashboard for municipal authorities to view, verify, and manage all submitted reports in real-time.
+* **🏆 Gamification:** A leaderboard is included to incentivize citizen reporting, fulfilling one of the optional bonus objectives.
 
 ---
 
@@ -36,7 +46,7 @@ The application empowers citizens to report non-compliant billboards through a s
 
 The application is designed with a modern client-server architecture, separating the user interface from the business logic for scalability and maintainability.
 
----
+
 +-----------------+      +---------------------+      +------------------+
 |                 |      |                     |      |                  |
 |   Frontend      |----->|     Backend API     |----->|    Database      |
@@ -53,20 +63,15 @@ The application is designed with a modern client-server architecture, separating
 |                  |
 +------------------+
 
----
-1.  **Frontend (Next.js & React):** The user-facing application that citizens and administrators interact with. It's responsible for rendering the UI, capturing report data (images, location), and communicating with the backend API.
 
-2.  **Backend API (Simulated with Node.js/Express):** The central hub that handles business logic. It would receive data from the frontend, process it, interact with the database, and call external services like the AI model for image analysis.
-
-3.  **Database (PostgreSQL - Conceptual):** A relational database to persistently store all application data, including user reports, billboard information, violation records, and leaderboard scores.
-
-4.  **AI Service (Google Gemini - Conceptual):** An external AI model would be used to perform computer vision analysis on the uploaded billboard images to automatically detect potential violations based on content, placement, and structural integrity.
+1.  **Frontend (Next.js & React):** The user-facing application that citizens and administrators interact with.
+2.  **Backend API (Simulated with Node.js/Express):** The central hub that handles business logic, data processing, and communication with the AI service.
+3.  **Database (PostgreSQL - Conceptual):** A relational database to store all report data, user information, and leaderboard scores.
+4.  **AI Service (Google Gemini - Conceptual):** An external AI model for computer vision analysis on uploaded billboard images.
 
 ---
 
 ## 🛠️ Tech Stack
-
-This project is built with modern web technologies to ensure performance, scalability, and a great developer experience.
 
 * **Frontend:**
     * [Next.js](https://nextjs.org/) - React Framework for Server-Side Rendering
@@ -74,7 +79,6 @@ This project is built with modern web technologies to ensure performance, scalab
     * [Tailwind CSS](https://tailwindcss.com/) - Utility-First CSS Framework
 * **Backend (Simulated):**
     * [Node.js](https://nodejs.org/) - JavaScript Runtime
-    * [Express.js](https://expressjs.com/) - Web Framework for Node.js (for a potential backend)
 
 ---
 
@@ -84,11 +88,8 @@ To get a local copy up and running, follow these simple steps.
 
 ### Prerequisites
 
-Make sure you have Node.js and npm installed on your machine.
-* **npm**
-    ```sh
-    npm install npm@latest -g
-    ```
+* Node.js (v16 or later)
+* npm
 
 ### Installation
 
@@ -111,56 +112,16 @@ Make sure you have Node.js and npm installed on your machine.
 5.  Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ---
+## ⚖️ Data Ethics & Privacy
 
-## 📂 Project Structure
-
-
-AdGuard-360/
-├── components/
-│   └── Layout.js         # Main layout component (header, footer)
-├── pages/
-│   ├── _app.js           # Global App component
-│   ├── index.js          # Home Page
-│   ├── report.js         # Report Submission Page
-│   ├── dashboard.js      # Admin Dashboard Page
-│   └── leaderboard.js    # Leaderboard Page
-├── public/               # Static assets (images, fonts)
-├── styles/
-│   └── globals.css       # Global styles and Tailwind directives
-└── package.json          # Project dependencies and scripts
-
-
----
-
-## 🤝 Contributing
-
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-
-1.  Fork the Project
-2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4.  Push to the Branch (`git push origin feature/AmazingFeature`)
-5.  Open a Pull Request
-
----
-
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
----
-
-## 📧 Contact
-
-Anurag Raj 
-
-Project Link: [https://github.com/AnuragRaj11/AdGuard-360](https://github.com/AnuragRaj11/AdGuard-360)
+In line with the hackathon's constraints, this project prioritizes ethical data handling:
+* The application logic is built from the ground up, with no use of existing public codebases.
+* The system is designed to avoid any facial detection or public surveillance.
+* A privacy disclaimer is conceptually included to inform users about data usage before they submit a report.
 
 ---
 
 ## 🙏 Acknowledgments
 
-* This project is a submission for the **Technova Season 2 Hackathon**.
+* This project is a proud submission for the **Technova Season 2 Hackathon**.
 * Special thanks to **ESSPL** for organizing this insightful and challenging event.

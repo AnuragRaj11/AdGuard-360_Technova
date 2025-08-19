@@ -1,20 +1,137 @@
-node_modules
-.log
+# -----------------------------
+# Global
+# -----------------------------
 .DS_Store
-.env
+Thumbs.db
+*.log
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
-dist
-coverage
-.vscode
-.idea
-*.sublime-workspace
-*.sublime-project
-*.swp
-*.swo
-*.bak
-*.tmp
-*.log
+pnpm-debug.log*
 *.pid
 *.seed
+*.pid.lock
+*.swp
+*.swo
+
+# Editors/IDEs
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.iml
+
+# Env & secrets
+.env
+.env.*
+*.env
+*.key
+*.pem
+secrets*.json
+
+# Caches
+.cache/
+.tmp/
+dist/
+coverage/
+.nyc_output/
+*.py[cod]
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.pytype/
+ruff_cache/
+
+# -----------------------------
+# Node / Next.js (portal)
+# -----------------------------
+portal/node_modules/
+portal/.next/
+portal/out/
+portal/.vercel/
+portal/.turbo/
+portal/.eslintcache
+# Tailwind
+portal/.tailwindcache/
+
+# Lockfiles: keep them for reproducible builds
+# !portal/package-lock.json
+# !portal/pnpm-lock.yaml
+# !portal/yarn.lock
+
+# -----------------------------
+# Python (backend + ai_service)
+# -----------------------------
+backend/.venv/
+backend/venv/
+backend/env/
+backend/build/
+backend/dist/
+backend/.pytest_cache/
+backend/.ruff_cache/
+backend/.coverage
+backend/coverage.xml
+backend/.mypy_cache/
+
+ai_service/.venv/
+ai_service/venv/
+ai_service/env/
+ai_service/build/
+ai_service/dist/
+ai_service/.pytest_cache/
+ai_service/.ruff_cache/
+ai_service/.coverage
+ai_service/coverage.xml
+ai_service/.mypy_cache/
+
+# Model weights & large artifacts
+ai_service/models/
+ai_service/weights/
+ai_service/**/*.pt
+ai_service/**/*.onnx
+ai_service/**/*.tflite
+ai_service/**/*.pth
+
+# Data & uploads (runtime/generated)
+backend/uploads/
+backend/tmp/
+ai_service/tmp/
+ai_service/output/
+
+# -----------------------------
+# React Native / Expo (mobile)
+# -----------------------------
+mobile/node_modules/
+mobile/.expo/
+mobile/.expo-shared/
+mobile/web-build/
+mobile/dist/
+mobile/.cache/
+# Native projects (if ejected)
+mobile/android/
+mobile/ios/
+
+# -----------------------------
+# Docker / Compose
+# -----------------------------
+docker-data/
+docker/**/data/
+*.tar
+*.tgz
+
+# -----------------------------
+# OS-specific
+# -----------------------------
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# -----------------------------
+# Misc project-specific
+# -----------------------------
+# Mongo local data dir (if you create one)
+mongodb-data/
+db-data/
+
+# Logs & reports
+**/logs/
+**/*.log

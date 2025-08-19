@@ -1,10 +1,3 @@
-/*
-===================================================================================
-FILE: styles/globals.css
-PURPOSE: Global stylesheet for the AdGuard-360 / Billboard Watch application.
-===================================================================================
-*/
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

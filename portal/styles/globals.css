@@ -1,9 +1,14 @@
-/* 1. Import Tailwind's base, components, and utilities styles. */
+/*
+===================================================================================
+FILE: styles/globals.css
+PURPOSE: Global stylesheet for the AdGuard-360 / Billboard Watch application.
+===================================================================================
+*/
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* 2. Define custom styles and component classes using @layer for better organization. */
 @layer base {
   body {
     font-family: 'Inter', sans-serif;
@@ -12,7 +17,6 @@
     min-height: 100vh;
   }
 
-  /* Custom scrollbar styling for a consistent look */
   ::-webkit-scrollbar {
     width: 8px;
   }
@@ -29,7 +33,6 @@
 }
 
 @layer components {
-  /* Glassmorphism Card Effect */
   .glass-card {
     background: rgba(22, 27, 34, 0.6);
     backdrop-filter: blur(10px);
@@ -37,46 +40,42 @@
     @apply rounded-lg;
   }
 
-  /* Primary Button Style */
   .btn-primary {
     background-color: #059669;
     color: white;
     transition: background-color 0.3s ease;
-    @apply font-bold py-2 px-4 rounded-lg;
+    @apply font-bold py-2 px-4 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed;
   }
-  .btn-primary:hover {
+  .btn-primary:hover:not(:disabled) {
     background-color: #06b6d4;
   }
 
-  /* Custom Gradient Text for Branding */
   .technova-gradient-text {
     background: linear-gradient(90deg, #22d3ee, #059669);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  /* Loading Spinner Animation */
   .loader {
     border: 4px solid #f3f3f3;
     border-top: 4px solid #059669;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 24px;
+    height: 24px;
     animation: spin 1s linear infinite;
   }
 
-  /* Navigation Link Style */
   .nav-link {
     @apply text-gray-300 hover:text-cyan-400 transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium;
   }
+
+  /* Form Input Styling */
+  .form-input {
+     @apply mt-1 block w-full rounded-md bg-gray-800 border-gray-600 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm text-white;
+  }
 }
 
-/* 3. Keyframe animations */
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

@@ -1,26 +1,24 @@
-import Link from 'next/link'
+import Layout from '../components/Layout';
+import Link from 'next/link';
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="grid md:grid-cols-2 gap-6">
-      <div className="card space-y-3">
-        <h1 className="text-2xl font-bold">AdGuard 360 </h1>
-        <p>AI + Citizen Powered Billboard Compliance Platform.</p>
-        <div className="flex gap-3">
-          <Link href="/report" className="btn btn-primary">Report</Link>
-          <Link href="/dashboard" className="btn">Dashboard</Link>
-          <Link href="/leaderboard" className="btn">Leaderboard</Link>
+    <Layout>
+      <div className="text-center">
+        <div className="glass-card p-8 md:p-12 rounded-lg">
+          <h1 className="text-4xl md:text-5xl font-bold technova-gradient-text mb-4">
+            Welcome to AdGuard 360
+          </h1>
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+            Your community-driven solution to identify and report unauthorized billboards. Help us make our cities safer and more beautiful, one report at a time.
+          </p>
+          <div className="flex justify-center gap-4">
+            <Link href="/report" className="btn-primary font-bold py-3 px-6 rounded-lg text-lg">
+              Report a Billboard
+            </Link>
+          </div>
         </div>
       </div>
-      <div className="card">
-        <h2 className="font-semibold mb-2">How it works</h2>
-        <ol className="list-decimal pl-5 space-y-1 text-sm">
-          <li>Upload a billboard photo</li>
-          <li>Auto geotag (optional)</li>
-          <li>AI flags possible violations</li>
-          <li>Authorities review & act</li>
-        </ol>
-      </div>
-    </div>
-  )
+    </Layout>
+  );
 }

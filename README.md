@@ -1,4 +1,3 @@
- 
 <div align="center">
   <img src="https://placehold.co/1280x400/0d1117/22d3ee?text=AdGuard%20360" alt="AdGuard 360 Banner">
   <h1 align="center">AdGuard 360 - Billboard Reporting System</h1>
@@ -33,32 +32,35 @@ The application empowers citizens to report non-compliant billboards through a s
 
 ---
 
-## 📸 Screenshots
+## 🏗️ System Architecture Overview
 
-<div align="center">
-  <table>
-    <tr>
-      <td width="50%">
-        <img src="https://placehold.co/600x400/0d1117/c9d1d9?text=Home%20Page" alt="Home Page Screenshot">
-        <p align="center"><b>Home Page</b></p>
-      </td>
-      <td width="50%">
-        <img src="https://placehold.co/600x400/0d1117/c9d1d9?text=Report%20Form" alt="Report Form Screenshot">
-        <p align="center"><b>Report Submission Form</b></p>
-      </td>
-    </tr>
-    <tr>
-      <td width="50%">
-        <img src="https://placehold.co/600x400/0d1117/c9d1d9?text=Dashboard" alt="Dashboard Screenshot">
-        <p align="center"><b>Admin Dashboard</b></p>
-      </td>
-      <td width="50%">
-        <img src="https://placehold.co/600x400/0d1117/c9d1d9?text=Leaderboard" alt="Leaderboard Screenshot">
-        <p align="center"><b>Leaderboard</b></p>
-      </td>
-    </tr>
-  </table>
-</div>
+The application is designed with a modern client-server architecture, separating the user interface from the business logic for scalability and maintainability.
+
+
++-----------------+      +---------------------+      +------------------+
+|                 |      |                     |      |                  |
+|   Frontend      |----->|     Backend API     |----->|    Database      |
+|  (Next.js)      |      | (Node.js / Express) |      |   (PostgreSQL)   |
+|                 |      |                     |      |                  |
++-----------------+      +---------------------+      +------------------+
+^                         |
+|                         |
+|                         v
+|               +------------------+
+|               |                  |
++---------------|    AI Service    |
+| (Gemini Vision)  |
+|                  |
++------------------+
+
+
+1.  **Frontend (Next.js & React):** The user-facing application that citizens and administrators interact with. It's responsible for rendering the UI, capturing report data (images, location), and communicating with the backend API.
+
+2.  **Backend API (Simulated with Node.js/Express):** The central hub that handles business logic. It would receive data from the frontend, process it, interact with the database, and call external services like the AI model for image analysis.
+
+3.  **Database (PostgreSQL - Conceptual):** A relational database to persistently store all application data, including user reports, billboard information, violation records, and leaderboard scores.
+
+4.  **AI Service (Google Gemini - Conceptual):** An external AI model would be used to perform computer vision analysis on the uploaded billboard images to automatically detect potential violations based on content, placement, and structural integrity.
 
 ---
 
